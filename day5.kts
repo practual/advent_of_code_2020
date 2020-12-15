@@ -1,24 +1,13 @@
 import java.io.File
+import utils.binarystringtolong.*
 
-var minId = Float.POSITIVE_INFINITY.toInt()
-var maxId = 0
-var seats = mutableSetOf<Int>()
-
-fun binaryStringToInt(binString: String): Int {
-    var int = 0
-    var exp = binString.length - 1
-    for (digit in binString) {
-        if (digit == "1".single()) {
-            int += Math.pow(2.0, exp.toDouble()).toInt()
-        }
-        exp -= 1
-    }
-    return int
-}
+var minId = Float.POSITIVE_INFINITY.toLong()
+var maxId = 0L
+var seats = mutableSetOf<Long>()
 
 fun processLine(line: String) {
-    var row = binaryStringToInt(line.take(7).replace("F", "0").replace("B", "1"))
-    var col = binaryStringToInt(line.takeLast(3).replace("L", "0").replace("R", "1"))
+    var row = binaryStringToLong(line.take(7).replace("F", "0").replace("B", "1"))
+    var col = binaryStringToLong(line.takeLast(3).replace("L", "0").replace("R", "1"))
     var seatId = row * 8 + col
     minId = Math.min(minId, seatId)
     maxId = Math.max(maxId, seatId)
