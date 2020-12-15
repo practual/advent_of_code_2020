@@ -8,3 +8,7 @@ Where util functions are needed, add the classpath, `kotlinc -classpath utils.ja
 
 Jar compiled with `kotlinc utils/* -d utils.jar`
 
+Day 15 needed to be compiled and run as a jar to avoid memory issues:
+`kotlinc day15.kt -include-runtime -d day15.jar`
+and run:
+`java -jar day15.jar day15_input`
